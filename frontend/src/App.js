@@ -159,14 +159,12 @@ function App() {
 
   const action = (selectedOption)=>{
     setSelectedOption(selectedOption);
-    console.log(selectedOption);
-    console.log(options[0][(selectedOption)%options[0].length].value);
+    setValue(options[0][selectedOption].value);
   }
 
   const action2 = (selectedOption2)=>{
     setSelectedOption2(selectedOption2);
-    console.log(selectedOption2);
-    console.log(options[1][(selectedOption2)%options[1].length].value);
+    setValue2(options[1][selectedOption2].value);
   }
 
   return (
@@ -174,7 +172,7 @@ function App() {
       <NavBar/>
       <Slides {...props[0]} action={action}/>
       <div className='select-options'>
-      <Select options={options[0]} on onChange={handelChange} styles = {colorStyles}  inputValue={options[0][selectedOption%options[0].length].value}/>
+      <Select options={options[0]} styles = {colorStyles}  inputValue={options[0][selectedOption%options[0].length].value}/>
       </div>
       <Slides {...props[1]}  action={action2}/>
       <div className='select-options'>

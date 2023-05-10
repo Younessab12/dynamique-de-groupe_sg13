@@ -43,7 +43,11 @@ export const Slides = (props) => {
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider" arrows = {true}  renderButtonGroupOutside = {true}
                         
                         afterChange={(previousSlide, { currentSlide, onMove }) => {
-                          action((currentSlide-2)%props.data.length);
+                          action( (
+                              (currentSlide-2)%props.data.length 
+                              + props.data.length
+                            )%props.data.length
+                          );
                         }}
                         >
                             {props.data.map((item, index) => (
