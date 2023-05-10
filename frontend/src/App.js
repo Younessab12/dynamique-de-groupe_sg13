@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { NavBar } from './components/NavBar';
 import Loader from './components/Loader';
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -20,12 +21,6 @@ function App() {
       { value: 'Prototype de barrage, SG71', label: 'Prototype de barrage, SG71' ,color :'black'}, 
       { value: 'Sur l\'environnement, SG61 ', label: 'Sur l\'environnement, SG61 ' ,color :'black'}, 
       { value: 'Magazine universitaire, SG33 ', label: 'Magazine universitaire, SG33 ' ,color :'black'},
-      { value: 'Échange intergenerationnelle, SG13', label: 'Échange intergenerationnelle, SG13',color :'black' },
-      { value: 'Elaboration d un bouquin(visite d orphelins), SG11', label: 'Elaboration d un bouquin(visite d orphelins), SG11', color :'black'}, 
-      { value: 'Ucap, SG53', label: 'Ucap, SG53' ,color :'black'}
-    ],
-    [
-      { value: 'none', label: 'none',color :'black' },
       { value: 'Échange intergenerationnelle, SG13', label: 'Échange intergenerationnelle, SG13',color :'black' },
       { value: 'Elaboration d un bouquin(visite d orphelins), SG11', label: 'Elaboration d un bouquin(visite d orphelins), SG11', color :'black'}, 
       { value: 'Ucap, SG53', label: 'Ucap, SG53' ,color :'black'}
@@ -76,8 +71,12 @@ function App() {
       })
       setLoading(false);
       if(!res.ok){
-        // alert(json.message)
-        toast.error("not a valide code",{
+        let msg = "";
+        if(res.status === 404)
+          msg = "not a valid code";
+        else 
+          msg = "this code has alredy voted"
+        toast.error(msg,{
           position:"bottom-right",
           autoClose:5000,
           hideProgressBar:false,
@@ -89,7 +88,8 @@ function App() {
           theme:'dark',
         });
       }
-      if(res.ok){
+      else{
+        console.log(res)
         toast.success("your vote has been submited",{
           position:"bottom-right",
           autoClose:5000,
@@ -204,7 +204,7 @@ function App() {
         
       </form>
       
-      {!loading &&<ToastContainer />}
+      <ToastContainer />
       {loading &&<Loader/>}
     </div>
   );

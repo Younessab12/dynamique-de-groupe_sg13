@@ -8,11 +8,15 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 
+
+const axios = require('axios')
 app.use(express.json());
+
 
 app.use((req,res,next)=>{
   console.log("hellothere");
   next();
+
 });
 
 
