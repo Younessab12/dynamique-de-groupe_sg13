@@ -19,7 +19,10 @@ function App() {
       { value: 'smart lamp, SG41', label: 'smart lamp, SG41' ,color :'black'},
       { value: 'Prototype de barrage, SG71', label: 'Prototype de barrage, SG71' ,color :'black'}, 
       { value: 'Sur l\'environnement, SG61 ', label: 'Sur l\'environnement, SG61 ' ,color :'black'}, 
-      { value: 'Magazine universitaire, SG33 ', label: 'Magazine universitaire, SG33 ' ,color :'black'}
+      { value: 'Magazine universitaire, SG33 ', label: 'Magazine universitaire, SG33 ' ,color :'black'},
+      { value: 'Échange intergenerationnelle, SG13', label: 'Échange intergenerationnelle, SG13',color :'black' },
+      { value: 'Elaboration d un bouquin(visite d orphelins), SG11', label: 'Elaboration d un bouquin(visite d orphelins), SG11', color :'black'}, 
+      { value: 'Ucap, SG53', label: 'Ucap, SG53' ,color :'black'}
     ],
     [
       { value: 'none', label: 'none',color :'black' },
@@ -133,6 +136,18 @@ function App() {
         img : img,
         title : "Magazine universitaire, SG33 ",
       },
+      {
+        img : img,
+        title : "Échange intergenerationnelle, SG13",
+      },
+      {
+        img : img,
+        title : "Elaboration d un bouquin(visite d orphelins), SG11",
+      },
+      {
+        img : img,
+        title : "Ucap, SG53",
+      }
 
     ]},
     {title : "category 2",
@@ -162,10 +177,10 @@ function App() {
     setValue(options[0][selectedOption].value);
   }
 
-  const action2 = (selectedOption2)=>{
-    setSelectedOption2(selectedOption2);
-    setValue2(options[1][selectedOption2].value);
-  }
+  // const action2 = (selectedOption2)=>{
+  //   setSelectedOption2(selectedOption2);
+  //   setValue2(options[1][selectedOption2].value);
+  // }
 
   return (
     <div className="App">
@@ -174,12 +189,12 @@ function App() {
       <div className='select-options'>
       <Select options={options[0]} styles = {colorStyles}  inputValue={options[0][selectedOption%options[0].length].value}/>
       </div>
-      <Slides {...props[1]}  action={action2}/>
+      {/* <Slides {...props[1]}  action={action2}/>
       <div className='select-options'>
       <Select options={options[1]} on onChange={(selectedOption)=>setValue2(selectedOption.value)} styles = {colorStyles}  
           inputValue={options[1][selectedOption2%options[1].length].value}
       />
-      </div>
+      </div> */}
 
 
       <form className= {error && code.length<=0?"input-error":"input-code"} onSubmit={handelSubmit}>

@@ -40,6 +40,26 @@ router.get("/",async (req,res) => {
 });
 
 
+router.get("/submited_codes", async(req,res)=> {
+    const auth = new google.auth.GoogleAuth({
+        keyFile: 'credentials.json',
+        scopes: 'https://www.googleapis.com/auth/spreadsheets'
+    });
+    
+    const client =await auth.getClient();
+    const googleSheet = google.sheets({ version: 'v4', auth: client });
+    const spreadsheetId = process.env.SPREADSHEET_ID
+    
+    
+    const getSheetData = await googleSheet.spreadsheets.values.get({
+        auth,
+        spreadsheetId,
+        range: 'Sheet2!A2:C'
+      });
+      
+      res.send(getSheetData.data.values);
+})
+
 router.post('/post', async(req,res)=>{
     const {code, value , value2} = req.body;
 
@@ -60,6 +80,17 @@ router.post('/post', async(req,res)=>{
             resource: {
             values: [
                 [code , value , value2]
+                ],
+            }
+        });
+        const response2 = await googleSheet.spreadsheets.values.append({
+            auth,
+            spreadsheetId,
+            range: 'Sheet2!A2:C',
+            valueInputOption: 'USER_ENTERED',
+            resource: {
+            values: [
+                [code]
                 ],
             }
         });
