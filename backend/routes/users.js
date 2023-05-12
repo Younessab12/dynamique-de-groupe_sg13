@@ -102,7 +102,7 @@ router.post('/post', async(req,res)=>{
                 valueInputOption: 'USER_ENTERED',
                 resource: {
                 values: [
-                    [code , value , value2]
+                    [code , value ]
                     ],
                 }
             });

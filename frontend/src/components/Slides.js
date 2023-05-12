@@ -7,12 +7,12 @@ export const Slides = (props) => {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 1,
       partialVisibilityGutter: 40
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 2,
+      items: 1,
       partialVisibilityGutter: 40
     },
     tablet: {

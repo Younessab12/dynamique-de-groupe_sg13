@@ -7,9 +7,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavBar } from './components/NavBar';
 import Loader from './components/Loader';
-
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from './components/Modal';
+
 
 function App() {
   const options = [
@@ -33,18 +33,18 @@ function App() {
 
   const [value ,setValue ]= useState("none");
 
-  const [value2 ,setValue2 ]= useState("none");
+  const [show , setShow] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState(0);
 
-  const [selectedOption2, setSelectedOption2] = useState(0);
+  
 
-  const handelChange=(selectedOption)=>{
-    setValue(selectedOption.value);
-    console.log(selectedOption.value);
-  }
+  // const handelChange=(selectedOption)=>{
+  //   setValue(selectedOption.value);
+  //   console.log(selectedOption.value);
+  // }
 
   const colorStyles ={
     controle : (styles)=>({...styles}),
@@ -56,11 +56,12 @@ function App() {
 
   const handelSubmit= async(e)=>{
     e.preventDefault();
+    setShow(false);
     if(code === ""){
       setError(true);
     }
     else{
-      const vote = {code, value,value2};
+      const vote = {code, value};
       setLoading(true)
       const res = await fetch('/users/api/post',{
         method:'post',
@@ -75,7 +76,7 @@ function App() {
         if(res.status === 404)
           msg = "not a valid code";
         else 
-          msg = "this code has alredy voted"
+          msg = "this code has alredy been used"
         toast.error(msg,{
           position:"bottom-right",
           autoClose:5000,
@@ -149,26 +150,6 @@ function App() {
         title : "Ucap, SG53",
       }
 
-    ]},
-    {title : "category 2",
-    des : "description of category 2,",
-    data:[
-      {
-        img : img,
-        title : "none"
-      },
-      {
-        img : img,
-        title : "Échange intergenerationnelle, SG13",
-      },
-      {
-        img : img,
-        title : "Elaboration d un bouquin(visite d orphelins), SG11",
-      },
-      {
-        img : img,
-        title : "Ucap, SG53",
-      }
     ]}
   ]
 
@@ -177,10 +158,17 @@ function App() {
     setValue(options[0][selectedOption].value);
   }
 
-  // const action2 = (selectedOption2)=>{
-  //   setSelectedOption2(selectedOption2);
-  //   setValue2(options[1][selectedOption2].value);
-  // }
+  const submition=(e)=>{
+    e.preventDefault();
+    if(code === ''){
+      setError(true);
+    }
+    else{
+      setShow(true);
+    }
+
+  }
+
 
   return (
     <div className="App">
@@ -189,23 +177,16 @@ function App() {
       <div className='select-options'>
       <Select options={options[0]} styles = {colorStyles}  inputValue={options[0][selectedOption%options[0].length].value}/>
       </div>
-      {/* <Slides {...props[1]}  action={action2}/>
-      <div className='select-options'>
-      <Select options={options[1]} on onChange={(selectedOption)=>setValue2(selectedOption.value)} styles = {colorStyles}  
-          inputValue={options[1][selectedOption2%options[1].length].value}
-      />
-      </div> */}
 
-
-      <form className= {error && code.length<=0?"input-error":"input-code"} onSubmit={handelSubmit}>
+      <form className= {error && code.length<=0?"input-error":"input-code"} onSubmit={submition}>
         <input type="text" placeholder='enter the code here'  value={code} onChange={(e)=>setCode(e.target.value)}/>
         {error && code.length<=0?<label>you must enter the code</label>:""}
         <button type="submit"><h5>submit</h5> </button>
         
       </form>
-      
       <ToastContainer />
       {loading &&<Loader/>}
+      {<Modal setShow={setShow} value = {value} handelSubmit={handelSubmit} show = {show} />}
     </div>
   );
 }
