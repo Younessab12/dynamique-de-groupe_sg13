@@ -63,7 +63,7 @@ function App() {
     else{
       const vote = {code, value};
       setLoading(true)
-      const res = await fetch('/users/api/post',{
+      const res = await fetch('https://jdg23.herokuapp.com/users/api/post',{
         method:'post',
         body:JSON.stringify(vote),
         headers:{
@@ -187,6 +187,7 @@ function App() {
       <ToastContainer />
       {loading &&<Loader/>}
       {<Modal setShow={setShow} value = {value} handelSubmit={handelSubmit} show = {show} />}
+      {/* <Footer/> */}
     </div>
   );
 }

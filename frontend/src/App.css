@@ -83,6 +83,14 @@ p.danger {
 	color: red;
 }
 /************ Navbar Css ************/
+.app{
+  width: 100% !important;
+}
+@media(max-width:1080px){
+  .app{
+    width: 80% !important;
+  }
+}
 nav.navbar {
   padding: 18px 0;
   position: fixed;
@@ -353,6 +361,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
+@media(max-width:1080px){
+  .item img{
+    width: 70% !important;
+  }
+}
 
 
 
@@ -399,7 +412,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .css-166bipr-Input{
   justify-content: center;
-  align-items: center;
 }
 
 .input-error{
@@ -435,3 +447,33 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   height: 40px;  
   cursor: pointer;
 }
+.react-multiple-carousel__arrow{
+  z-index: 1  !important;
+  position: absolute !important;
+}
+.react-multiple-carousel__arrow--left{
+  left: calc(0% + 1px) !important;
+}
+.react-multiple-carousel__arrow--right{
+  right: calc(0% + 1px) !important;
+}
+@media(max-width: 991px){
+  .react-multiple-carousel__arrow--left{
+    left: calc(0% + 1px) !important;
+  }
+  .react-multiple-carousel__arrow--right{
+    right: calc(0% + 1px) !important;
+  }
+}
+
+.css-1cfo1cf{
+  /* grid-template-columns:50% min-content !important; */
+  justify-content: center !important;
+}
+
+.css-hlgwow div{
+  justify-content: center !important;
+}
+
+
+
