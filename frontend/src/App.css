@@ -84,13 +84,15 @@ p.danger {
 }
 /************ Navbar Css ************/
 .app{
-  width: 100% !important;
+  display: block;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-@media(max-width:1080px){
-  .app{
-    width: 80% !important;
-  }
-}
+
+
+
+
 nav.navbar {
   padding: 18px 0;
   position: fixed;
@@ -320,9 +322,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 /************ Skills Css ************/
 .skill {
-  padding: 0 0 50px 0 ;
+  padding: auto ;
   position: relative;
 }
+
 .skill-bx {
   background: #151515;
   max-width: 110%;
@@ -363,15 +366,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 @media(max-width:1080px){
   .item img{
-    width: 70% !important;
+    height: 100% !important;
+    width: 80% !important;
   }
 }
 
-
+.input-btn{
+  margin: 10%;
+}
 
 .input-code{
   max-width: 400px;
-  margin: 0 auto;
   margin-top: 20px;
   text-align: center;
 }
@@ -407,7 +412,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   max-width: 400px;
   margin: 0 auto;
   margin-top: 20px;
-  text-align: center;
+  text-align: center;;
   position: relative;
 }
 .css-166bipr-Input{
@@ -475,5 +480,47 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   justify-content: center !important;
 }
 
+.content-container{
+  display: flex;
+  
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 
+.css-1xc3v61-indicatorContainer{
+  display: none !important;
+  pointer-events: none !important;
+}
+
+
+.css-1u9des2-indicatorSeparator{
+  display: none !important; 
+  pointer-events: none !important;
+}
+
+.css-1nmdiq5-menu{
+  display: none !important;
+}
+
+.css-1xc3v61-indicatorContainer{
+  display: none !important;
+  pointer-events: none !important;
+}
+
+
+.css-13cymwt-control{
+  pointer-events: none !important;
+}
+
+
+.css-b62m3t-container{
+  display: flex !important;
+  align-items: center  !important;
+  justify-content: center !important;
+}

@@ -49,7 +49,7 @@ function App() {
   const colorStyles ={
     controle : (styles)=>({...styles}),
     option : (styles, {data, isDisabled, isFocused, isSelected})=>{
-      return{...styles,color :data.color}
+    return{...styles,color :data.color,width:'auto'}
     }
   }
 
@@ -106,8 +106,8 @@ function App() {
     }
   }
   const props = [
-    {title : "category 1",
-    des : "description of category 1",
+    {title : "PROJECTS",
+    des : "vote for the best project",
     data:[
       {
         img : img,
@@ -171,23 +171,25 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="app">
       <NavBar/>
       <Slides {...props[0]} action={action}/>
       <div className='select-options'>
       <Select options={options[0]} styles = {colorStyles}  inputValue={options[0][selectedOption%options[0].length].value}/>
       </div>
-
+      <div className='form'>
       <form className= {error && code.length<=0?"input-error":"input-code"} onSubmit={submition}>
         <input type="text" placeholder='enter the code here'  value={code} onChange={(e)=>setCode(e.target.value)}/>
         {error && code.length<=0?<label>you must enter the code</label>:""}
-        <button type="submit"><h5>submit</h5> </button>
+        <button type="submit" className='input-btn'><h5>submit</h5> </button>
         
       </form>
+      </div>
       <ToastContainer />
       {loading &&<Loader/>}
       {<Modal setShow={setShow} value = {value} handelSubmit={handelSubmit} show = {show} />}
       {/* <Footer/> */}
+      
     </div>
   );
 }

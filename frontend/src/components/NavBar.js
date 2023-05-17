@@ -13,7 +13,6 @@ import "../App.css"
 export const NavBar = () => {
 
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState('home');
 
   useEffect(() => {
     const onScroll = () => {
