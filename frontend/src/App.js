@@ -9,7 +9,20 @@ import { NavBar } from './components/NavBar';
 import Loader from './components/Loader';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from './components/Modal';
-
+import Ucap from "./assets/img/Ucap.jpg";
+import none from "./assets/img/none.png";
+import conf_orien from "./assets/img/conf_orien.jpg";
+import baconnect from "./assets/img/baconnect.jpg";
+import daydream_orphan from "./assets/img/Daydream_orphan.jpg";
+import enq from "./assets/img/enq.jpg";
+import podcast from "./assets/img/podcast.jpg";
+import chill from './assets/img/chill.jpg';
+import gdzgreen from "./assets/img/gadzgreen.jpg";
+import podcast2 from "./assets/img/podcast2.jpg";
+import ensamh from "./assets/img/ensamh.jpg";
+import groupe from "./assets/img/Groupe.jpg";
+import lec from "./assets/img/leq.png";
+import mag from "./assets/img/mag.jpg";
 
 function App() {
   const options = [
@@ -17,13 +30,17 @@ function App() {
       { value: 'none', label: 'none',color :'black' },
       { value: 'Enquête sur la formation arts et métiers, SG21', label: 'Enquête sur la formation arts et métiers, SG21',color :'black' },
       { value: 'Conférence d\'orientation de filière, SG71', label: 'Conférence d\'orientation de filière, SG71', color :'black'}, 
-      { value: 'smart lamp, SG41', label: 'smart lamp, SG41' ,color :'black'},
-      { value: 'Prototype de barrage, SG71', label: 'Prototype de barrage, SG71' ,color :'black'}, 
-      { value: 'Sur l\'environnement, SG61 ', label: 'Sur l\'environnement, SG61 ' ,color :'black'}, 
-      { value: 'Magazine universitaire, SG33 ', label: 'Magazine universitaire, SG33 ' ,color :'black'},
-      { value: 'Échange intergenerationnelle, SG13', label: 'Échange intergenerationnelle, SG13',color :'black' },
-      { value: 'Elaboration d un bouquin(visite d orphelins), SG11', label: 'Elaboration d un bouquin(visite d orphelins), SG11', color :'black'}, 
-      { value: 'Ucap, SG53', label: 'Ucap, SG53' ,color :'black'}
+      { value: 'Gadz Green, SG61 ', label: 'Gadz Green, SG61 ' ,color :'black'}, 
+      { value: 'Échange intergenerationnel, SG13', label: 'Échange intergenerationnel, SG13',color :'black' },
+      { value: 'Daydream orphan, SG11', label: 'Daydream orphan, SG11', color :'black'}, 
+      { value: 'Ucap, SG53', label: 'Ucap, SG53' ,color :'black'},
+      { value: 'Baconnect, SG72', label: 'Baconnect, SG72' ,color :'black'},
+      { value: "podcast ensamien, SG43", label: 'podcast ensamien, SG43' ,color :'black'},
+      { value: "Chill spot, SG43", label: 'Chill spot, SG43' ,color :'black'},
+      { value: "L'histoire de l'ENSAM, SG13", label: "L'histoire de l'ENSAM, SG13" ,color :'black'},
+      { value: "Podcast L'intelligence artificielle, SG23", label: "Podcast L'intelligence artificielle, SG23" ,color :'black'},
+      { value: "Journée de lecture, SG51", label: "Journée de lecture, SG51" ,color :'black'},
+      { value: "Magazine universitaire, SG33", label: "Magazine universitaire, SG33" ,color :'black'}
     ]
   ];
 
@@ -63,7 +80,7 @@ function App() {
     else{
       const vote = {code, value};
       setLoading(true)
-      const res = await fetch('https://jdg23.herokuapp.com/users/api/post',{
+      const res = await fetch('https://jdg23-vote.onrender.com/users/api/post',{
         method:'post',
         body:JSON.stringify(vote),
         headers:{
@@ -110,46 +127,62 @@ function App() {
     des : "vote for the best project",
     data:[
       {
-        img : img,
+        img : none,
         title : "none"
       }
       ,{
-        img : img,
+        img : enq,
         title : "Enquête sur la formation arts et métiers, SG21",
       },
       {
-        img : img,
+        img : conf_orien,
         title : "Conférence d'orientation de filière, SG71 ",
       },
       {
-        img : img,
-        title : "smart lamp, SG41 ",
+        img : gdzgreen,
+        title : "Gadz Green, SG61 ",
+      },
+      
+      {
+        img : groupe,
+        title : "Échange intergenerationnal, SG13",
       },
       {
-        img : img,
-        title : "Prototype de barrage, SG71   ",
+        img : daydream_orphan,
+        title : "Daydream orphan, SG11",
       },
       {
-        img : img,
-        title : "Sur l'environnement, SG61 ",
-      },
-      {
-        img : img,
-        title : "Magazine universitaire, SG33 ",
-      },
-      {
-        img : img,
-        title : "Échange intergenerationnelle, SG13",
-      },
-      {
-        img : img,
-        title : "Elaboration d un bouquin(visite d orphelins), SG11",
-      },
-      {
-        img : img,
+        img : Ucap,
         title : "Ucap, SG53",
+      },
+      {
+        img : baconnect,
+        title : "Baconnect, SG72",
+      },
+      {
+        img : podcast,
+        title : "podcast ensamien, SG43",
+      },
+      {
+        img : chill,
+        title : "Chill spot, SG23",
+      },
+      {
+        img : ensamh,
+        title : "L'histoire de l'ENSAM, SG13",
+      },
+      {
+        img : podcast2,
+        title : "Podcast L'intelligence artificielle, SG23",
+      },
+      {
+        img : lec,
+        title : "Journée de lecture, SG51",
+      },
+      {
+        img : mag,
+        title : "Magazine universitaire, SG33",
       }
-
     ]}
   ]
 

@@ -48,7 +48,7 @@ export const NavBar = () => {
               <div className="social-icon">
                 <a href="https://www.linkedin.com/in/youness-aabibi-671140238/"><img src={navIcon1} alt="" /></a>
                 {/* <a href="#"><img src={navIcon2} alt="" /></a> */}
-                <a href=""><img src={navIcon3} alt="" /></a>
+                <a href="https://instagram.com/jdg20_23?igshid=OTk0YzhjMDVlZA=="><img src={navIcon3} alt="" /></a>
               </div>
             </span>
           </Navbar.Collapse>
